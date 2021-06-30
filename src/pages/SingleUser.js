@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { navigateToUser } from '../redux/actions/route.action';
 import { getSingleUserApi } from '../redux/actions/user.action';
+import { useToasts } from 'react-toast-notifications'
 const SingleUser = () => {
     const { user } = useParams();
     const dispatch = useDispatch();
     const { selectedUser } = useSelector(({ users }) => users)
+    const { addToast } = useToasts()
     useEffect(() => {
-        dispatch(getSingleUserApi(user));
+        dispatch(getSingleUserApi(user,addToast));
         dispatch(navigateToUser()) ; 
     }, [])
     return (
-        <div className="w-4/6 h-4/6 flex justify-center self-center my-10 items-center flex-col shadow-lg rounded">
+        <div className="w-4/6 h-4/6 flex justify-center self-center my-10 items-center flex-col bg-white rounded">
             <div className="w-full  mx-10  h-24 flex justify-end " >
                 <button class="relative inline-block px-7 py-3 mx-5 my-5 font-semibold text-white leading-tight">
                     <span aria-hidden="true" class="absolute inset-0 bg-primary opacity-50 rounded-md">

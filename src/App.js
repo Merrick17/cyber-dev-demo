@@ -9,7 +9,7 @@ import Main from "./pages/Main";
 import PrivateRoute from "./components/PrivateRoute";
 const App = () => {
   return (
-    <div className=" h-screen w-screen " >
+    <div className=" h-screen w-screen bg-second" >
       <Router>
 
 
